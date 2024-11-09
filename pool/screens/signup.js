@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Switch, ScrollView } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Switch, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -12,8 +12,11 @@ const signup = ({ navigation }) => {
     const [password, setPassword] = useState('');
 
     const handleSignUp = () => {
-        // Perform sign-up logic here
-        navigation.navigate('MobileMoneyLink');
+        if (username && email && phone && password && isAccepted) {
+            navigation.navigate('MobileMoneyLink', {name: username});
+        } else{
+            Alert.alert('Error', 'Please fill out all fields and accept the terms and conditions');
+        }
     };
 
   return (
