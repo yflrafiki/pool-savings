@@ -9,6 +9,17 @@ import  Login  from './screens/Login';
 import MobileMoneyLink from './screens/MobileMoneyLink';
 import MobileMoneyApproval from './screens/MobileMoneyApproval';
 import Welcome2 from './screens/Welcome2';
+import SetGoal from './screens/SetGoal';
+import FlatSavingPackage from './screens/FlatSavingPackage';
+import PesewaSavePackage from './screens/PesewaSavePackage';
+import PesewaSaveInReversePackage from './screens/PesewaSaveInReversePackage';
+import OscillatingPesewaSavePackage from './screens/OscillatingPesewaSavePackage';
+import LockSavings from './screens/LockSavings';
+import Success from './screens/Success';
+import History from './screens/History';
+import Deductions from './screens/Deductions';
+import Deposits from './screens/Deposits';
+import Withdrawals from './screens/Withdrawals';
 
 
 const Stack = createNativeStackNavigator();
@@ -45,6 +56,61 @@ export default function App() {
         <Stack.Screen 
           name="Welcome2"
           component={Welcome2}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name="SetGoal"
+          component={SetGoal}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name="FlatSavingPackage"
+          component={FlatSavingPackage}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name="PesewaSavePackage"
+          component={PesewaSavePackage}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name="PesewaSaveInReversePackage"
+          component={PesewaSaveInReversePackage}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name="OscillatingPesewaSavePackage"
+          component={OscillatingPesewaSavePackage}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name='LockSavings'
+          component={LockSavings}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name='Success'
+          component={Success}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name='History'
+          component={History}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name='Deductions'
+          component={Deductions}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name='Deposits'
+          component={Deposits}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name='Withdrawals'
+          component={Withdrawals}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
