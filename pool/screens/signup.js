@@ -21,7 +21,7 @@ const signup = ({ navigation }) => {
 
   return (
             <View style={styles.stepContainer}>
-                <Image source={require('../assets/images/logo1.png')} style={styles.logo} />
+                <Image source={require('../assets/images/chok1.png')} style={styles.logo} />
 
              <TextInput 
                 style={styles.input}

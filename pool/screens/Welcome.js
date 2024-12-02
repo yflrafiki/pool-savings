@@ -14,7 +14,7 @@ const Welcome = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        <Image source={require('../assets/images/logo1.png')} style={styles.logo} />
+        <Image source={require('../assets/images/chok1.png')} style={styles.logo} />
         <Text style={styles.title}>Sign Up</Text>
         <Text style={styles.subtitle}>Welcome to Take Chai!</Text>
         <Text style={styles.subtitle}> Save small today, enjoy big tomorrow!</Text>

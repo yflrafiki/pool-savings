@@ -13,7 +13,7 @@ const Login = ({ navigation }) => {
             <View style={styles.container}>
                 {/* Logo */}
                 <View style={styles.logoContainer}>
-                <Image source={require('../assets/images/logo1.png')} style={styles.logo} resizeMode='contain' />
+                <Image source={require('../assets/images/chok1.png')} style={styles.logo} resizeMode='contain' />
                 </View>
 
                 {/* Title*/}
