@@ -20,8 +20,8 @@ const SetGoal = ({ navigation }) => {
   }));
 
     const hideConfirmation = () => {
-        translateY.value = withTiming(height, { duration: 500 }); // Slide-out animation
-        setTimeout(() => setIsConfirmVisible(false), 500); // Hide after animation
+        translateY.value = withTiming(height, { duration: 100 }); // Slide-out animation
+        setTimeout(() => setIsConfirmVisible(false), 100); // Hide after animation
     };
 
   return (
@@ -110,7 +110,7 @@ const SetGoal = ({ navigation }) => {
           <Text style={styles.confirmationText}>
             By confirming, deductions will be made from your account.
           </Text>
-          <TouchableOpacity style={styles.confirmButton}>
+          <TouchableOpacity style={styles.confirmButton} onPress={hideConfirmation}>
             <Text style={styles.confirmButtonText}>Confirm</Text>
           </TouchableOpacity>
         </Animated.View>
@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     width: '100%',
+    height: '50%',
     backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -156,11 +157,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
+    left: '5%',
   },
   confirmationText: {
-    fontSize: 16,
+    fontSize: 20,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 50,
+    marginTop: 50,
     color: '#333',
   },
   confirmButton: {
@@ -168,6 +171,9 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 50,
     borderRadius: 25,
+    marginTop: 50,
+    width: '80%',
+    alignItems: 'center',
   },
   confirmButtonText: {
     color: '#FFF',

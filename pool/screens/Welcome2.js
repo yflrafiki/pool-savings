@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Animated, Dimensi
 import { Circle } from 'react-native-progress';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -51,21 +52,26 @@ const Welcome2 = () => {
                 <Icon name="chevron-back-outline" size={24} color="#4D80E4" />
               </View>
             </TouchableOpacity>
-            <Circle
+            <AnimatedCircularProgress
               size={100}
-              progress={0.65}
-              showsText={true}
-              textStyle={{ fontSize: 20 }}
-              formatText={() => '65%'}
-              color="#4D80E4"
-            />
+              width={8}
+              fill={65}
+              tintColor="#4D80E4"
+              backgroundColor="#E0E4FF"
+              rotation={0}
+              lineCap='round'>
+                {fill => <Text style={styles.progressText}>{`${fill.toFixed(0)}%`}</Text>}
+            </AnimatedCircularProgress>
             <TouchableOpacity style={styles.arrowButton} onPress={openMenu}>
               <View style={styles.iconCircle}>
                 <Icon name="chevron-forward-outline" size={24} color="#4D80E4" />
               </View>
             </TouchableOpacity>
           </View>
-          <Text style={styles.progressLabel}>My girlfriend</Text>
+          <View style={styles.progressLabelContainer}>
+            <View style={styles.blueDot} />
+            <Text style={styles.progressLabel}>My girlfriend</Text>
+          </View>
         </View>
 
         <View style={styles.deductionsContainer}>
@@ -82,7 +88,7 @@ const Welcome2 = () => {
 
         <View style={styles.actionsContainer}>
           <View style={styles.actionRow}>
-            <TouchableOpacity style={styles.actionItem} onPress={() => navigation.navigate('SetGoal')}>
+            <TouchableOpacity style={styles.actionItem} onPress={() => navigation.navigate('YourGoals')}>
               <View style={styles.iconCircle}>
                 <Icon name="bar-chart-outline" size={32} color="#4D80E4" />
               </View>
@@ -156,6 +162,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F9F9FB',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   scrollViewContainer: {
     alignItems: 'center',
@@ -209,17 +217,23 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 20,
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 5,
+    margin: 20,
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    color: '#000000',
+    marginBottom: 20,
+    color: '#000',
+    textAlign: 'center',
   },
   progressContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    justifyContent: 'space-between'
   },
   arrowButton: {
     padding: 10,
@@ -231,12 +245,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#F9F9FB',
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#4D80E4',
+  },
+  progressText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: "#4D80E4",
+  },
+  progressLabelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  blueDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#4D80E4',
+    marginRight: 10,
   },
   progressLabel: {
     fontSize: 16,
-    color: '#4D4D4D',
+    color: '#000',
+    marginTop: 20,
   },
   deductionsContainer: {
     width: '100%',
