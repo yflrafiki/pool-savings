@@ -22,6 +22,7 @@ import Deposits from './screens/Deposits';
 import Withdrawals from './screens/Withdrawals';
 import YourGoals from './screens/YourGoals';
 import GoalDetail from './screens/GoalDetail';
+import Success2 from './screens/Success2';
 
 
 const Stack = createNativeStackNavigator();
@@ -123,6 +124,11 @@ export default function App() {
         <Stack.Screen 
           name='GoalDetail'
           component={GoalDetail}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name='Success2'
+          component={Success2}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

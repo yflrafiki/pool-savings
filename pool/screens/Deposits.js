@@ -35,7 +35,10 @@ const Deposits = () => {
       <View style={styles.header}>
         <Text style={styles.headerText}>Deposits</Text>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <Icon name="arrow-back-outline" size={24} color="#4D80E4" />
+          <View style={styles.iconCircle}>
+            <Icon name="arrow-back-outline" size={24} color="#647BFE" />
+
+          </View>
         </TouchableOpacity>
       </View>
 
@@ -43,10 +46,9 @@ const Deposits = () => {
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Search"
           placeholderTextColor="#A0A0A0"
         />
-        <Icon name="search-outline" size={20} color="#A0A0A0" style={styles.searchIcon} />
+        <Icon name="search-outline" size={20} color="#BFBFBF" style={styles.searchIcon} />
       </View>
 
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
@@ -74,7 +76,7 @@ const styles = StyleSheet.create({
   },
   header: {
     position: 'absolute',
-    top: 50,
+    top: 90,
     left: 16,
     right: 16,
     flexDirection: 'row',
@@ -82,22 +84,44 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerText: {
-    fontSize: 32,
-    fontWeight: 'bold',
+    width: 155,
+    height: 40,
+    lineHeight: 40,
+    fontSize: 36,
+    fontWeight: 500,
     color: '#000000',
   },
   backButton: {
     padding: 8,
   },
+  iconCircle: {
+    width: 36,
+    height: 36,
+    borderRadius: 30,
+    borderWidth: 0.5,
+    borderColor: '#C6CFFF',
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#C6CFFF40',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 5,
+  },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#E6E7EE',
-    borderRadius: 10,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
     marginTop: 100, // Adjusted to push the search bar below the header
     marginHorizontal: 16,
     paddingHorizontal: 10,
-    height: 45, // Adjust the height of the search bar
+    height: 32, // Adjust the height of the search bar
+    borderWidth: 1,
+    borderColor: '#C6CFFF',
+    top: 20,
+    shadowColor: '#C6CFFF14',
   },
   searchInput: {
     flex: 1,
@@ -105,7 +129,9 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   searchIcon: {
+    borderWidth: 1.5,
     marginRight: 10,
+    borderColor: '#BFBFBF',
   },
   scrollViewContainer: {
     flexGrow: 1,
@@ -113,32 +139,43 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   depositGroup: {
-    backgroundColor: '#E6E7EE',
-    borderRadius: 10,
+    backgroundColor: '#F2F4FF',
+    borderRadius: 12,
     padding: 16,
     marginBottom: 20,
+    borderWidth: 0.5,
+    borderColor: '#C6CFFF',
+    shadowColor: '#C6CFFF40',
+    top: 30,
   },
   dateText: {
+    height: 40,
+    lineHeight: 40,
     fontSize: 14,
-    fontWeight: 'bold',
-    color: '#000000',
+    fontWeight: 500,
+    color: '#8F8686',
     marginBottom: 8,
   },
   dateLine: {
-    borderBottomWidth: 1,
-    borderBottomColor: '#D3D3D3',
+    borderBottomWidth: 0.7,
+    borderBottomColor: '#E6DEDE',
     marginBottom: 8,
   },
   entryTextContainer: {
     paddingVertical: 8,
   },
   entryTextContainerWithBorder: {
-    borderBottomWidth: 1,
-    borderBottomColor: '#D3D3D3',
+    borderBottomWidth: 0.7,
+    borderBottomColor: '#E6DEDE',
   },
   entryText: {
+    width: 315,
+    height: 40,
+    lineHeight: 40,
+    fontWeight: 400,
     fontSize: 16,
     color: '#000000',
+    left: 6,
   },
 });
 

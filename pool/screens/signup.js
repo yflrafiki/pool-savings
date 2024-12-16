@@ -21,39 +21,55 @@ const signup = ({ navigation }) => {
 
   return (
             <View style={styles.stepContainer}>
-                <Image source={require('../assets/images/chok1.png')} style={styles.logo} />
+                <Image source={require('../assets/images/chok11.png')} style={styles.logo} />
+                <View style={styles.fieldset}>
+                    <View style={styles.fieldsetItem}>
+                    <Text style={styles.legend}>Username</Text>
+                        <TextInput 
+                            style={styles.input}
+                            placeholder='Username'
+                            value={username}
+                            onChangeText={setUsername}
+                        />
+                    </View>
+                    <View style={styles.fieldsetItem}>
+                    <Text style={styles.legend}>Email</Text>
+                        <TextInput 
+                            style={styles.input}
+                            placeholder='Email'
+                            value={email}
+                            onChangeText={setEmail}
+                        />
+                    </View>
+                    <View style={styles.fieldsetItem}>
+                    <Text style={styles.legend}>Phone</Text>
+                        <TextInput 
+                            style={styles.input}
+                            placeholder='Phone'
+                            value={phone}
+                            onChangeText={setPhone}
+                        />
+                    </View>
+                    <View style={styles.fieldsetItem}>
+                    <Text style={styles.legend}>Password</Text>
+                        <TextInput 
+                            style={styles.input1}
+                            placeholder='Password'
+                            secureTextEntry
+                            value={password}
+                            onChangeText={setPassword}
+                        />
+                    </View>
 
-             <TextInput 
-                style={styles.input}
-                placeholder='Username'
-                value={username}
-                onChangeText={setUsername}
-             />
-             <TextInput 
-                style={styles.input}
-                placeholder='Email'
-                value={email}
-                onChangeText={setEmail}
-             />
-             <TextInput 
-                style={styles.input}
-                placeholder='Phone'
-                value={phone}
-                onChangeText={setPhone}
-             />
-             <TextInput 
-                style={styles.input}
-                placeholder='Password'
-                secureTextEntry
-                value={password}
-                onChangeText={setPassword}
-             />
+                </View>
              <View style={styles.termsContainer}>
                 <Switch 
                     value= {isAccepted}
                     onValueChange={setIsAccepted}
                     thumbColor={isAccepted ? "#4285F4" : "#f4f3f4"}
-                    trackColor={{false: "#767577", true: "#81b0ff"}}
+                    trackColor={{false: "#D9D9D9", true: "#81b0ff"}}
+                    width={23}
+                    height={10}
                 />
                 <Text style={styles.checkboxLabel}>Accept all terms and conditions</Text>
              </View>
@@ -73,38 +89,80 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     logo: {
-        width: 100,
-        height: 100,
+        width: 313,
+        height: 266,
+        top: 19,
         marginBottom: 20,
     },
+    fieldset: {
+        width: 330,
+        height: 478,
+        top: 68,
+      },
+      fieldsetItem: {
+        marginBottom: 10,
+        position: 'relative',
+      },
+      legend: {
+        position: 'absolute',
+        top: -8,
+        left: 15,
+        fontSize: 12,
+        zIndex: 1,
+        width: 60,
+        height: 40,
+        fontWeight: 500,
+        color: '#8D8A8A'
+      },
     input: {
-        width: '100%',
+        width: 330,
         height: 50,
-        borderColor: '#ccc',
+        borderColor: '#CCC9C9',
         borderWidth: 1,
-        borderRadius: 5,
+        borderRadius: 12,
+        paddingHorizontal: 10,
+        marginBottom: 10,
+    },
+    input1: {
+        width: 330,
+        height: 50,
+        borderColor: '#3852E7',
+        borderWidth: 1,
+        borderRadius: 12,
         paddingHorizontal: 10,
         marginBottom: 10,
     },
     termsContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20,
+        marginTop: -130,
     },
     checkboxLabel: {
         marginLeft: 10,
-        fontSize: 14,
-        color: '#555', // text color
+        fontSize: 16,
+        color: '#968B8B',  // text color
+        width: 248,
+        height: 40,
     },
     button: {
-        backgroundColor: '#4285F4',
-        paddingVertical: 15,
-        paddingHorizontal: 100,
-        borderRadius: 5,
+        backgroundColor: '#3F5CFE',
+        paddingTop: 5,
+        paddingRight: 149,
+        paddingBottom: 5,
+        borderRadius: 30,
+        paddingLeft: 149,
+        width: 330,
+        height: 50,
+        top: 85,
+        shadowColor: '#C6CFFF'
     },
     buttonText: {
-        color: '#fff',
+        width: 70,
+        height: 40,
+        color: '#FFFFFF',
         fontSize: 16,
+        fontWeight: 600,
+
     },
 });
 

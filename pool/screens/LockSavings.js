@@ -3,12 +3,11 @@ import { View, Text, StyleSheet, TouchableOpacity, Modal, FlatList } from 'react
 import { Ionicons } from '@expo/vector-icons';
 
 const LockSavings = ({ navigation }) => {
-  const [goal, setGoal] = useState('New laptop');
   const [timeframe, setTimeframe] = useState('6 months');
   const [modalVisible, setModalVisible] = useState(false);
   const [confirmationVisible, setConfirmationVisible] = useState(false);
 
-  const goals = ['New laptop', 'Vacation', 'Emergency fund', 'Car', 'House'];
+  
 
   const handleBackPress = () => {
     navigation.goBack();
@@ -36,7 +35,9 @@ const LockSavings = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
-        <Ionicons name="arrow-back-circle-outline" size={30} color="#000000" />
+        <View style={styles.iconCircle}>
+        <Ionicons name="arrow-back-circle-outline" size={30} color="#647BFE" />
+        </View>
       </TouchableOpacity>
       <Text style={styles.headerTitle}>Lock Savings</Text>
       <View style={styles.contentContainer}>
@@ -46,8 +47,10 @@ const LockSavings = ({ navigation }) => {
         <View style={styles.fieldset}>
           <Text style={styles.legend}>Goal</Text>
           <TouchableOpacity onPress={handleGoalPress} style={styles.textInputContainer}>
-            <Text style={styles.textInput}>{goal}</Text>
-            <Ionicons name="chevron-down" size={24} color="#000000" style={styles.dropdownIcon} />
+          <View style={styles.textInputContainer}>
+            <Text style={styles.textInput}>New laptop</Text>
+          </View>
+          <Ionicons name="chevron-down" size={24} color="#999393" style={styles.dropdownIcon} />
           </TouchableOpacity>
         </View>
         <View style={styles.fieldset}>
@@ -61,35 +64,7 @@ const LockSavings = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      <Modal
-        visible={modalVisible}
-        transparent={true}
-        animationType="slide"
-        onRequestClose={() => setModalVisible(false)}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <FlatList
-              data={goals}
-              keyExtractor={(item) => item}
-              renderItem={({ item }) => (
-                <TouchableOpacity
-                  style={styles.modalItem}
-                  onPress={() => handleGoalSelect(item)}
-                >
-                  <Text style={styles.modalItemText}>{item}</Text>
-                </TouchableOpacity>
-              )}
-            />
-            <TouchableOpacity
-              style={styles.modalCloseButton}
-              onPress={() => setModalVisible(false)}
-            >
-              <Text style={styles.modalCloseButtonText}>Cancel</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
+      
 
       <Modal
         visible={confirmationVisible}
@@ -125,12 +100,30 @@ const styles = StyleSheet.create({
     right: 20,
     zIndex: 1,
   },
+  iconCircle: {
+    width: 36,
+    height: 36,
+    borderRadius: 30,
+    borderWidth: 0.5,
+    borderColor: '#C6CFFF',
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#C6CFFF40',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 5,
+  },
   headerTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
+    width: 230,
+    height: 40,
+    lineHeight: 40,
+    fontSize: 36,
+    fontWeight: 500,
     color: '#000000',
     position: 'absolute',
-    top: 80,
+    top: 100,
     left: 20,
   },
   contentContainer: {
@@ -140,89 +133,77 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   description: {
-    fontSize: 16,
+    width: 318,
+    height: 60,
+    lineHeight: 30,
+    fontSize: 20,
     color: '#000000',
     textAlign: 'center',
     marginBottom: 30,
+    fontWeight: 400,
+    top: -30,
   },
   fieldset: {
     marginBottom: 20,
-    width: '100%',
+    width: 330,
+    height: 50,
     borderWidth: 1,
-    borderColor: '#E5E7EB',
-    borderRadius: 10,
+    borderColor: '#CCC9C9',
+    borderRadius: 12,
     padding: 10,
-    paddingTop: 0,
+    top: 20,
   },
   legend: {
-    fontSize: 14,
-    color: '#6B7280',
+    height: 40,
+    fontSize: 12,
+    color: '#8D8A8A',
     marginBottom: 5,
     paddingHorizontal: 5,
     position: 'absolute',
     top: -10,
     left: 10,
     backgroundColor: '#FFFFFF',
+    fontWeight: 500,
   },
   textInputContainer: {
-    borderWidth: 1,
-    borderColor: '#E5E7EB',
-    borderRadius: 10,
     padding: 10,
-    marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   textInput: {
+    width: 107,
+    height: 40,
+    lineHeight: 40,
+    fontWeight: 500,
     fontSize: 16,
-    color: '#111827',
+    color: '#000000',
+    top: -20,
   },
   dropdownIcon: {
+    top: -20,
     marginLeft: 10,
   },
   lockButton: {
-    backgroundColor: '#4F8EF7',
-    padding: 15,
-    borderRadius: 10,
+    backgroundColor: '#647BFE',
+    paddingTop: 5,
+    paddingRight: 149,
+    paddingBottom: 5,
+    paddingLeft: 149,
+    borderRadius: 30,
     alignItems: 'center',
     marginTop: 20,
-    width: '100%',
+    width: 330,
+    height: 50,
+    top: 40,
   },
   lockButtonText: {
+    width: 103,
+    height: 40,
+    lineHeight: 40,
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: 'bold',
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-  modalContent: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 10,
-    padding: 20,
-    width: '80%',
-    maxHeight: '60%',
-  },
-  modalItem: {
-    padding: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-  },
-  modalItemText: {
-    fontSize: 16,
-    color: '#111827',
-  },
-  modalCloseButton: {
-    marginTop: 10,
-    alignItems: 'center',
-  },
-  modalCloseButtonText: {
-    fontSize: 16,
-    color: '#4F8EF7',
+    fontWeight: 600,
   },
   confirmationContainer: {
     flex: 1,
@@ -232,33 +213,52 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20, // Added padding to prevent the box from covering the button and text
   },
   confirmationBox: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 10,
-    padding: 20,
-    width: '90%',
+    margin: 0,
     position: 'absolute',
-    top: '40%',
-    left: '5%',
+    bottom: 0,
+    width: 431,
+    height: 438,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 30,
+    padding: 20,
     alignItems: 'center',
+    shadowColor: '#C6CFFF40',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 5,
   },
   confirmationText: {
-    fontSize: 16,
-    color: '#111827',
+    width: 332,
+    height: 90,
+    lineHeight: 30,
+    fontSize: 20,
+    color: '#000000',
     textAlign: 'center',
     marginBottom: 20,
+    fontWeight: 400,
+    top: 80,
   },
   confirmButton: {
-    backgroundColor: '#4F8EF7',
-    padding: 15,
-    borderRadius: 10,
+    backgroundColor: '#3F5CFE',
+    paddingTop: 5,
+    paddingRight: 149,
+    paddingBottom: 5,
+    paddingLeft: 149,
+    borderRadius: 30,
     alignItems: 'center',
-    width: '80%',
+    width: 330,
+    height: 50,
     marginTop: 10,
+    top: 160,
   },
   confirmButtonText: {
+    width: 64,
+    height: 40,
+    lineHeight: 40,
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: 600,
   },
 });
 

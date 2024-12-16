@@ -10,22 +10,19 @@ const Withdrawals = () => {
     {
       date: 'Oct 22, 2024',
       entries: [
-        '¢50.00 withdrawn from Emergency goal',
-        '¢30.00 withdrawn from Vacation goal'
+        '¢200.00 withdrawn from New Apartment goal',
       ]
     },
     {
       date: 'Oct 21, 2024',
       entries: [
-        '¢20.00 withdrawn from New Laptop goal',
-        '¢40.00 withdrawn from Emergency goal'
+        '¢30.00 withdrawn from Education goal',
       ]
     },
     {
       date: 'Oct 20, 2024',
       entries: [
-        '¢10.00 withdrawn from Vacation goal',
-        '¢15.00 withdrawn from Emergency goal'
+        '¢15.00 withdrawn from Holiday Gifts goal',
       ]
     },
   ];
@@ -35,7 +32,9 @@ const Withdrawals = () => {
       <View style={styles.header}>
         <Text style={styles.headerText}>Withdrawals</Text>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <Icon name="arrow-back-outline" size={24} color="#4D80E4" />
+          <View style={styles.iconCircle}>
+            <Icon name="arrow-back-outline" size={24} color="#647BFE" />
+          </View>
         </TouchableOpacity>
       </View>
 
@@ -43,8 +42,6 @@ const Withdrawals = () => {
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Search"
-          placeholderTextColor="#A0A0A0"
         />
         <Icon name="search-outline" size={20} color="#A0A0A0" style={styles.searchIcon} />
       </View>
@@ -73,8 +70,9 @@ const styles = StyleSheet.create({
     paddingTop: 50,
   },
   header: {
+    height: 40,
     position: 'absolute',
-    top: 50,
+    top: 100,
     left: 16,
     right: 16,
     flexDirection: 'row',
@@ -82,22 +80,44 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerText: {
-    fontSize: 32,
-    fontWeight: 'bold',
+    width: 222,
+    height: 40,
+    lineHeight: 40,
+    fontSize: 36,
+    fontWeight: 500,
     color: '#000000',
   },
   backButton: {
     padding: 8,
   },
+  iconCircle: {
+    width: 36,
+    height: 36,
+    borderRadius: 30,
+    borderWidth: 0.5,
+    borderColor: '#C6CFFF',
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#C6CFFF40',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 5,
+  },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#E6E7EE',
-    borderRadius: 10,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
     marginTop: 100, // Adjusted to push the search bar below the header
     marginHorizontal: 16,
     paddingHorizontal: 10,
-    height: 45, // Adjust the height of the search bar
+    height: 32, // Adjust the height of the search bar
+    top: 39,
+    borderWidth: 1,
+    borderColor: '#C6CFFF',
+    shadowColor: '#C6CFFF14',
   },
   searchInput: {
     flex: 1,
@@ -105,7 +125,9 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   searchIcon: {
+    borderWidth: 1.5,
     marginRight: 10,
+    borderColor: '#BFBFBF',
   },
   scrollViewContainer: {
     flexGrow: 1,
@@ -113,20 +135,26 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   withdrawalGroup: {
-    backgroundColor: '#E6E7EE',
-    borderRadius: 10,
+    backgroundColor: '#F2F4FF',
+    borderRadius: 12,
     padding: 16,
     marginBottom: 20,
+    top: 80,
+    borderWidth: 0.5,
+    borderColor: '#C6CFFF',
+    shadowColor: '#C6CFFF40',
   },
   dateText: {
+    height: 40,
+    lineHeight: 40,
     fontSize: 14,
-    fontWeight: 'bold',
-    color: '#000000',
+    fontWeight: 500,
+    color: '#8F8686',
     marginBottom: 8,
   },
   dateLine: {
-    borderBottomWidth: 1,
-    borderBottomColor: '#D3D3D3',
+    borderWidth: 0.7,
+    borderColor: '#E6DEDE',
     marginBottom: 8,
   },
   entryTextContainer: {
@@ -137,8 +165,13 @@ const styles = StyleSheet.create({
     borderBottomColor: '#D3D3D3',
   },
   entryText: {
+    width: 350,
+    height: 30,
+    lineHeight: 30,
+    fontWeight: 400,
     fontSize: 16,
     color: '#000000',
+    left: 6,
   },
 });
 

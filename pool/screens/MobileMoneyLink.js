@@ -1,9 +1,10 @@
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image } from 'react-native';
 import React from 'react'
 
 const MobileMoneyLink = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
+        <Image source={require('../assets/images/chok11.png')} style={styles.logo} />
         <View style={styles.content}>
             <Text style={styles.text}>We recommend linking your mobile money number for smooth automatic deductions and effortless savings.</Text>
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('MobileMoneyApproval')}>
@@ -21,26 +22,48 @@ const styles = StyleSheet.create({
         padding: 16,
         backgroundColor: 'white' // background color
     },
+    logo: {
+        width: 313,
+        height: 266,
+        top: 4,
+        marginBottom: 20,
+    },
     content: {
+        width: 339,
+        height: 280,
         alignItems: 'center',
-        padding: 16,
+        paddingTop: 28,
     },
     text: {
-        fontSize: 18,
-        color: 'black', //text color
+        lineHeight: 30,
+        width: 330,
+        height: 120,
+        fontSize: 20,
+        fontWeight: 400,
+        color: '#000000', //text color
         textAlign: 'center',
         marginBottom: 32,
     },
     button: {
-        backgroundColor: '#1E90FF',
-        padding: 16,
-        borderRadius: 8,
-        width: '100%',
+        width: 330,
+        height: 50,
+        backgroundColor: '#3F5CFE',
+        top: 198,
+        left: 5,
+        paddingTop: 5,
+        paddingRight: 149,
+        paddingBottom: 5,
+        paddingLeft: 149,
+        borderRadius: 30,
         alignItems: 'center',
+        shadowColor: '#C6CFFF'
     },
     buttonText: {
-        color: '#fff',
-        fontWeight: 'bold',
+        width: 88,
+        height: 40,
+        color: '#FFFFFF',
+        fontSize: 14.8,
+        fontWeight: 600,
     },
 });
 

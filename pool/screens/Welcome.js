@@ -14,10 +14,10 @@ const Welcome = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        <Image source={require('../assets/images/chok1.png')} style={styles.logo} />
+        <Image source={require('../assets/images/chok11.png')} style={styles.logo} />
         <Text style={styles.title}>Sign Up</Text>
-        <Text style={styles.subtitle}>Welcome to Take Chai!</Text>
-        <Text style={styles.subtitle}> Save small today, enjoy big tomorrow!</Text>
+        <Text style={styles.subtitle}>Welcome to Take Chok!</Text>
+        <Text style={styles.subtitle1}> Save small today, enjoy big tomorrow!</Text>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignUp')}>
                 <Icon name="google" size={20} color="#fff" style={styles.icon} />
                 <Text style={styles.buttonText}>Sign Up with Google</Text>
@@ -41,13 +41,15 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20,
         backgroundColor: '#fff',
+        borderRadius: 30,
+        height: 844,
     },
     logo: {
-        width: 100,
-        height: 100,
-        marginBottom: 20,
+        width: 404,
+        height: 343,
+        marginTop: 21,
+        left: -3,
     },
     content: {
         flex: 1,
@@ -56,60 +58,97 @@ const styles = StyleSheet.create({
         padding: 16,
     },
     title: {
-        fontSize: 24,
+        fontSize: 36,
         textAlign: 'center',
-        fontWeight: 'bold',
+        fontWeight: 'semi-bold',
         color: 'black',
-        marginBottom: 10,
+        marginBottom: 40,
+        width: 136,
+        height: 40,
     },
     subtitle: {
-        fontSize: 16,
-        color: '#555',
+        fontSize: 15,
+        color: '#968B8B',
         textAlign: 'center',
-        marginBottom: 20,
+        Top: 52,
+        width: 180,
+        height: 40,
+        fontWeight: 500,
+        
+    },
+    subtitle1: {
+        fontSize: 16,
+        color: '#968B8B',
+        textAlign: 'center',
+        Top: 78,
+        width: 311,
+        height: 40,
+        fontWeight: 500,
+    },
+    icon: {
+        width: 16,
+        height: 19.68,
     },
     button: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#4285F4',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 5,        
-        marginBottom: 10,
+        backgroundColor: '#647BFE',
+        borderRadius: 30,        
+        marginBottom: 149,
+        width: 350,
+        height: 50,
+        shadowColor: '#C5CEFF'
     },
     buttonText: {
-        color: '#fff',
+        color: '#FFFFFF',
         fontSize: 16,
         marginLeft: 10,
+        fontWeight: 600,
     },
     secondaryButton: {
         backgroundColor: '#fff',
         borderWidth: 1,
-        borderColor: '#ccc',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 5,
-        marginBottom: 20,
+        borderColor: '#CCC9C9',
+        borderRadius: 30,
+        width: 310,
+        height: 50,
+        paddingTop: 5,
+        paddingBottom: 15,
+        paddingRight: 104,
+        paddingLeft: 104,
+        marginTop: -120
     },
     secondaryButtonText: {
-        color: '#555',
-        fontSize: 16,
+        color: '#999393',
+        fontSize: 15,
+        width: 149,
+        height: 40,
+        fontWeight: 600,
+        paddingTop: 14,
     },
     footer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        width: '50%',
+        width: 146,
+        height: 19.68,
         marginTop: 20,
         marginBottom: 20,
     },
     loginText: {
         color: '#555',
-        fontSize: 14,
+        fontSize: 16,
+        width: 248,
+        height: 40,
+        marginTop: 20,
+        
     },
     loginLink: {
-        color: '#4285F4',
+        color: '#5F77FE',
         textDecorationLine: 'underline',
+        fontWeight: 500,
+        fontSize: 16,
+        height: 40,
     },
 
 });

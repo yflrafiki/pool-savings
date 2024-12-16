@@ -22,20 +22,20 @@ const GoalDetail = ({ route, navigation }) => {
           <Text style={styles.detailValue}>{goal.title}</Text>
         </View>
         <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Description</Text>
-          <Text style={styles.detailValue}>{goal.description}</Text>
+          <Text style={styles.detailLabel1}>Description</Text>
+          <Text style={styles.detailValue1}>{goal.description}</Text>
         </View>
         <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Amount</Text>
-          <Text style={styles.detailValue}>500</Text>
+          <Text style={styles.detailLabel2}>Amount</Text>
+          <Text style={styles.detailValue2}>500</Text>
         </View>
         <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Timeframe</Text>
-          <Text style={styles.detailValue}>6 months</Text>
+          <Text style={styles.detailLabel3}>Timeframe</Text>
+          <Text style={styles.detailValue3}>6 months</Text>
         </View>
         <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Your saving plan</Text>
-          <Text style={styles.detailValue}>Pesewa Save Package</Text>
+          <Text style={styles.detailLabel4}>Your saving plan</Text>
+          <Text style={styles.detailValue4}>Pesewa Save Package</Text>
         </View>
       </View>
       <View style={styles.progressContainer}>
@@ -109,29 +109,116 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   goalDetails: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 10,
+    width: 350,
+    height: 257,
+    backgroundColor: '#F2F4FF',
+    borderRadius: 12,
+    borderWidth: 0.5,
+    borderColor: '#C6CFFF',
     padding: 15,
-    marginBottom: 20,
-    shadowColor: '#000',
+    marginBottom: -30,
+    shadowColor: '#C6CFFF40',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
   },
   detailRow: {
+    width: 318,
+    height: 50,
+    top: 6,
+    left: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    marginBottom: -10,
   },
   detailLabel: {
-    fontSize: 16,
-    color: '#666',
+    width: 31,
+    height: 40,
+    top: 2,
+    fontWeight: 500,
+    lineHeight: 40,
+    fontSize: 14,
+    color: '#7F7E7E',
+  },
+  detailLabel1: {
+    width: 77,
+    height: 40,
+    top: 2,
+    fontWeight: 500,
+    lineHeight: 40,
+    fontSize: 14,
+    color: '#7F7E7E',
+  },
+  detailLabel2: {
+    width: 53,
+    height: 40,
+    top: 2,
+    fontWeight: 500,
+    lineHeight: 40,
+    fontSize: 13.2,
+    color: '#7F7E7E',
+  },
+  detailLabel3: {
+    width: 73,
+    height: 40,
+    top: 2,
+    fontWeight: 500,
+    lineHeight: 40,
+    fontSize: 14,
+    color: '#7F7E7E',
+  },
+  detailLabel4: {
+    width: 110,
+    height: 40,
+    top: 2,
+    fontWeight: 500,
+    lineHeight: 40,
+    fontSize: 13.2,
+    color: '#7F7E7E',
   },
   detailValue: {
+    width: 92,
+    height: 40,
+    lineHeight: 40,
+    right: 20,
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#000',
+    fontWeight: 400,
+    color: '#000000',
+  },
+  detailValue1: {
+    width: 125,
+    height: 40,
+    lineHeight: 40,
+    fontSize: 16,
+    right: 50,
+    fontWeight: 400,
+    color: '#000000',
+  },
+  detailValue2: {
+    width: 30,
+    height: 40,
+    top: 2,
+    lineHeight: 40,
+    fontSize: 16,
+    fontWeight: 400,
+    color: '#000000',
+  },
+  detailValue3: {
+    width: 72,
+    height: 40,
+    lineHeight: 40,
+    fontSize: 16,
+    fontWeight: 400,
+    color: '#000000',
+  },
+  detailValue4: {
+    width: 170,
+    height: 40,
+    lineHeight: 40,
+    fontSize: 16,
+    fontWeight: 400,
+    color: '#000000',
   },
   progressContainer: {
     alignItems: 'center',
@@ -154,11 +241,15 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   deductionsContainer: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 10,
+    width: 350,
+    height: 273,
+    backgroundColor: '#F1F3FE',
+    borderRadius: 12,
+    borderWidth: 0.5,
+    borderColor: '#C6CFFF',
     padding: 15,
     marginBottom: 20,
-    shadowColor: '#000',
+    shadowColor: '#C6CFFF40',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
@@ -171,24 +262,40 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   deductionRow: {
+    width: 318,
+    height: 40,
+    left: 6,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 10,
   },
   deductionText: {
+    width: 154,
+    height: 40,
+    fontWeight: 400,
+    lineHeight: 40,
     fontSize: 16,
-    color: '#666',
+    color: '#000000',
   },
   depositButton: {
-    backgroundColor: '#4D80E4',
-    paddingVertical: 15,
-    borderRadius: 10,
+    width: 330,
+    height: 50,
+    top: 10,
+    backgroundColor: '#647BFE',
+    paddingTop: 5,
+    paddingRight: 149,
+    paddingBottom: 5,
+    paddingLeft: 149,
+    borderRadius: 30,
     alignItems: 'center',
   },
   depositButtonText: {
-    fontSize: 16,
-    color: '#FFF',
-    fontWeight: 'bold',
+    width: 111,
+    height: 40,
+    lineHeight: 40,
+    fontSize: 15.6,
+    color: '#FFFFFF',
+    fontWeight: 600,
   },
 });
 

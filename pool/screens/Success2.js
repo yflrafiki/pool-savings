@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const Success = ({ navigation }) => {
+const Success2 = ({ navigation }) => {
   const handleBackPress = () => {
     navigation.goBack(); // Navigates back to the previous screen
   };
@@ -11,12 +11,14 @@ const Success = ({ navigation }) => {
     <View style={styles.container}>
       <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
         <View style={styles.circle}>
-          <Ionicons name="arrow-back-outline" size={24} color="#647BFE" />
+          <Ionicons name="arrow-back-outline" size={24} color="#4F8EF7" />
         </View>
       </TouchableOpacity>
       <View style={styles.contentContainer}>
-        <Ionicons name="checkmark-circle-outline" size={290} color="#4F8EF7" />
-        <Text style={styles.successText}>Your savings have been locked! You don take chok!</Text>
+        <View style={styles.icon}>
+        <Ionicons name="checkmark-circle-outline" size={300} color="#3D5AFE"/>
+        </View>
+        <Text style={styles.successText}>Your goal has been confirmed! You don take chok!</Text>
       </View>
     </View>
   );
@@ -36,14 +38,14 @@ const styles = StyleSheet.create({
   circle: {
     width: 36,
     height: 36,
+    top: 56,
     borderRadius: 30,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF', // Light gray background for the circular button
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 0.5,
     borderColor: '#C6CFFF',
     shadowColor: '#C6CFFF40',
-    top: 50,
   },
   contentContainer: {
     flex: 1,
@@ -51,15 +53,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   successText: {
-    width: 310,
+    width: 294,
     height: 60,
     lineHeight: 30,
-    fontSize: 20,
+    fontSize: 19.6,
     fontWeight: 600,
     color: '#8D8A8A',
     textAlign: 'center',
     marginTop: 20,
   },
+  subText: {
+    fontSize: 16,
+    color: '#6B7280',
+    textAlign: 'center',
+    marginTop: 10,
+  },
 });
 
-export default Success;
+export default Success2;

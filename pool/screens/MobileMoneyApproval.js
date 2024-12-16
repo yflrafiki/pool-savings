@@ -4,15 +4,18 @@ import React from 'react'
 const MobileMoneyApproval = ({ navigation }) => {
   return (
         <View style={styles.container}>
-            <Image source={require('../assets/images/logo1.png')} style={styles.logo} />
+            <Image source={require('../assets/images/chok11.png')} style={styles.logo} />
 
             <Text style={styles.recommendationText}>We recommend linking your mobile money number for smooth automatic deductions and effortless savings.</Text>
 
             <View style={styles.approvalContainer}>
-                 <Text style={styles.text}>Have you approved the mobile money integration message we sent?</Text>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Welcome2')}>
-                    <Text style={styles.buttonText}>Yes, Link Up</Text>
-                </TouchableOpacity>
+                <View style={styles.content}>
+                    <Text style={styles.text}>Have you approved the mobile money integration message we sent?</Text>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Welcome2')}>
+                        <Text style={styles.buttonText}>Yes, Link Up</Text>
+                    </TouchableOpacity>
+
+                </View>
             </View>
         </View>
   )
@@ -24,25 +27,31 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#F5F1FF',
     },
     logo: {
-        width: 100,
-        height: 100,
+        width: 313,
+        height: 266,
+        top: 14,
         marginBottom: 20,
     },
     recommendationText: {
-        fontSize: 16,
-        color: '#888',
+        width: 330,
+        height: 120,
+        fontSize: 20,
+        color: '#DEDCDC',
         textAlign: 'center',
-        paddingHorizontal: 20,
-        marginBottom: 40,
+        fontWeight: 400,
+        marginTop: 50,
+        lineHeight: 30,
     },
     approvalContainer: {
         backgroundColor: '#fff',
-        borderRadius: 10,
+        borderRadius: 30,
         padding: 91.7,
-        width: '100%',
+        width: 430,
+        height: 438,
+        top: 37,
         textAlign: 'center',
         shadowColor: '#000',
         shadowOpacity: 0.2,
@@ -50,22 +59,44 @@ const styles = StyleSheet.create({
         shadowRadius: 15,
         elevation: 10,
     },
-    text: {
-        fontSize: 18,
-        color: '#000',
+    content: {
+        width: 330,
+        height: 245,
+        top: 83,
+        right: 30,
         textAlign: 'center',
-        marginBottom: 20,
+    },
+    text: {
+        width: 294,
+        height: 90,
+        top: 14,
+        fontSize: 20,
+        color: '#000000',
+        textAlign: 'center',
+        marginBottom: 100,
+        lineHeight: 30,
+        fontWeight: 400,
     },
     button: {
-        backgroundColor: '#4285F4',
-        paddingVertical: 15,
-        paddingHorizontal: 60,
-        borderRadius: 5,
+        width: 330,
+        height: 50,
+        backgroundColor: '#3F5CFE',
+        paddingTop: 5,
+        paddingRight: 149,
+        paddingBottom: 5,
+        paddingLeft: 149,
+        borderRadius: 30,
+        shadowColor: '#C6CFFF',
     },
     buttonText: {
-        color: '#fff', //yes link up
-        fontSize: 16,
+        width: 88,
+        height: 40,
+        fontWeight: 600,
+        color: '#FFFFFF', //yes link up
+        fontSize: 14.8,
         textAlign: 'center',
+        justifyContent: 'center',
+        lineHeight: 40,
     },
 });
 
