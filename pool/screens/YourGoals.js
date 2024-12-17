@@ -49,14 +49,9 @@ const YourGoals = ({ navigation }) => {
         {goals.map((goal, index) => (
           <TouchableOpacity 
             key={index} 
-            style={[
-              styles.goalCard,
-              goal.title === 'My girlfriend' && styles.goalCardGirlfriend,
-              goal.title === 'My solo trip to Zanzibar' && styles.goalCardZanzibar,
-              goal.title === 'Money for my start-up' && styles.goalCardStartup,
-              goal.title === 'Big 50' && styles.goalCardBig50,
-            ]} 
-            onPress={() => navigation.navigate('GoalDetail', { goal })}
+            style={
+              styles.goalCard} 
+            onPress={() => navigation.navigate('GoalDetail')}
           >
             <View style={styles.goalTextContainer}>
               <Text style={[styles.goalTitle, styles[goal.titleStyle]]}>{goal.title}</Text>

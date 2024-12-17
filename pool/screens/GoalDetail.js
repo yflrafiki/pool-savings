@@ -3,284 +3,357 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
-const GoalDetail = ({ route, navigation }) => {
-  const { goal } = route.params;
+const GoalDetail = ({  navigation }) => {
+
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>{goal.title}</Text>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          <View style={styles.iconCircle}>
-            <Icon name="chevron-back-outline" size={24} color="#4D80E4" />
+      {/* Back Button */}
+       <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+                <View style={styles.iconCircle}>
+                <Icon name="arrow-back-outline" size={24} color="#647BFE" />
+                </View>
+              </TouchableOpacity>
+
+      {/* Heading */}
+      <Text style={styles.header}>New Laptop</Text>
+
+      {/* Goal Details */}
+      <View style={styles.detailCard}>
+      <View style={[styles.row, styles.entrySeparator]}>
+          <Text style={styles.label}>Goal</Text>
+          <Text style={styles.value}>New Laptop</Text>
+        </View>
+
+        <View style={[styles.row1, styles.entrySeparator]}>
+          <Text style={styles.label1}>Description</Text>
+          <Text style={styles.value1}>My new laptop...</Text>
+        </View>
+
+        <View style={[styles.row2, styles.entrySeparator]}>
+          <Text style={styles.label2}>Amount</Text>
+          <Text style={styles.value2}>500</Text>
+        </View>
+
+        <View style={[styles.row3, styles.entrySeparator]}>
+          <Text style={styles.label3}>Timeframe</Text>
+          <Text style={styles.value3}>6 months</Text>
+        </View>
+
+        <View style={styles.row4}>
+          <Text style={styles.label4}>Your Saving Plan</Text>
+          <Text style={styles.value4}>Pesewa Save Package</Text>
+        </View>
+      </View>
+
+      {/* Progress Section */}
+      <View style={styles.progressSection}>
+        <Text style={styles.progressTitle}>Your Progress</Text>
+          <View style={styles.progressContent}>
+             <AnimatedCircularProgress
+                          size={150}
+                          width={15}
+                          height={86}
+                          fill={100}
+                          tintColor="#3D5AFE"
+                          backgroundColor="#E0E4FF"
+                          rotation={0}
+                          lineCap='round'>
+                            {fill => <Text style={styles.progressText}>{`${fill.toFixed(0)}%`}</Text>}
+                        </AnimatedCircularProgress>
           </View>
-        </TouchableOpacity>
+          <View style={styles.intext}>
+            <Text style={styles.inProgress}>In progress</Text>
+
+          </View>
       </View>
-      <View style={styles.goalDetails}>
-        <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Goal</Text>
-          <Text style={styles.detailValue}>{goal.title}</Text>
-        </View>
-        <View style={styles.detailRow}>
-          <Text style={styles.detailLabel1}>Description</Text>
-          <Text style={styles.detailValue1}>{goal.description}</Text>
-        </View>
-        <View style={styles.detailRow}>
-          <Text style={styles.detailLabel2}>Amount</Text>
-          <Text style={styles.detailValue2}>500</Text>
-        </View>
-        <View style={styles.detailRow}>
-          <Text style={styles.detailLabel3}>Timeframe</Text>
-          <Text style={styles.detailValue3}>6 months</Text>
-        </View>
-        <View style={styles.detailRow}>
-          <Text style={styles.detailLabel4}>Your saving plan</Text>
-          <Text style={styles.detailValue4}>Pesewa Save Package</Text>
-        </View>
+
+      {/* Fee Deductions */}
+      <View style={styles.deductionsCard}>
+        <Text style={[styles.label5, styles.entrySeparator]}>Deductions</Text>
+        <Text style={[styles.value6, styles.entrySeparator]}>₵5.00 fee deduction                         ✅</Text>
+        <Text style={[styles.value7, styles.entrySeparator]}>₵5.00 fee deduction                         ❌</Text>
+        <Text style={[styles.value8,styles.entrySeparator]}>₵5.00 fee deduction                          ✅</Text>
       </View>
-      <View style={styles.progressContainer}>
-        <Text style={styles.progressLabel}>Your Progress</Text>
-        <AnimatedCircularProgress
-          size={200}
-          width={10}
-          fill={100}
-          tintColor="#4D80E4"
-          backgroundColor="#E0E4FF"
-          rotation={0}
-          lineCap="round"
-        >
-          {fill => <Text style={styles.progressText}>{`${fill.toFixed(0)}%`}</Text>}
-        </AnimatedCircularProgress>
-        <Text style={styles.statusLabel}>In progress</Text>
-      </View>
-      <View style={styles.deductionsContainer}>
-        <Text style={styles.deductionsLabel}>Deductions</Text>
-        <View style={styles.deductionRow}>
-          <Text style={styles.deductionText}>₵5.00 fee deduction</Text>
-          <Icon name="checkmark-circle-outline" size={24} color="#4D80E4" />
-        </View>
-        <View style={styles.deductionRow}>
-          <Text style={styles.deductionText}>₵5.00 fee deduction</Text>
-          <Icon name="close-circle-outline" size={24} color="red" />
-        </View>
-        <View style={styles.deductionRow}>
-          <Text style={styles.deductionText}>₵5.00 fee deduction</Text>
-          <Icon name="checkmark-circle-outline" size={24} color="#4D80E4" />
-        </View>
-      </View>
-      <TouchableOpacity style={styles.depositButton} onPress={() => { /* Handle deposit action */ }}>
-        <Text style={styles.depositButtonText}>Deposit Funds</Text>
+
+      {/* Deposit Funds Button */}
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Deposit Funds</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F9FAFF',
-    padding: 20,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  headerText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#000',
+  container: { 
+    flex: 1, 
+    backgroundColor: '#FFF', 
+    padding: 20 
   },
   backButton: {
-    padding: 10,
+    padding: 15,
+    right: 20,
+    zIndex: 1,
   },
   iconCircle: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 36,
+    height: 36,
+    top: 56,
+    left: 334,
+    zIndex: 1,
+    borderRadius: 30,
+    borderWidth: 0.5,
+    borderColor: '#C6CFFF',
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: '#C6CFFF40',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 5,
   },
-  goalDetails: {
+  header: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 20
+  },
+  detailCard: {
     width: 350,
     height: 257,
     backgroundColor: '#F2F4FF',
     borderRadius: 12,
+    padding: 15,
+    marginBottom: 20,
     borderWidth: 0.5,
     borderColor: '#C6CFFF',
-    padding: 15,
-    marginBottom: -30,
     shadowColor: '#C6CFFF40',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 5,
   },
-  detailRow: {
-    width: 318,
-    height: 50,
-    top: 6,
-    left: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: -10,
+  row: {
+    flexDirection: 'row', // Align items in a row
+    justifyContent: 'space-between', // Push label and value to opposite ends
+    marginVertical: 5,
+    top: -25,
   },
-  detailLabel: {
+  row1: {
+    flexDirection: 'row', // Align items in a row
+    justifyContent: 'space-between', // Push label and value to opposite ends
+    marginVertical: 5,
+    top: -35,
+  },
+  row2: {
+    flexDirection: 'row', // Align items in a row
+    justifyContent: 'space-between', // Push label and value to opposite ends
+    marginVertical: 5,
+    top: -45,
+  },
+  row3: {
+    flexDirection: 'row', // Align items in a row
+    justifyContent: 'space-between', // Push label and value to opposite ends
+    marginVertical: 5,
+    top: -55,
+  },
+  row4: {
+    flexDirection: 'row', // Align items in a row
+    justifyContent: 'space-between', // Push label and value to opposite ends
+    marginVertical: 5,
+    top: -60,
+  },
+  label: { 
     width: 31,
     height: 40,
-    top: 2,
-    fontWeight: 500,
     lineHeight: 40,
-    fontSize: 14,
-    color: '#7F7E7E',
+    fontSize: 14, 
+    color: '#7F7E7E', 
+    marginTop: 10,
+    fontWeight: 500,
   },
-  detailLabel1: {
-    width: 77,
+  label1: { 
     height: 40,
-    top: 2,
-    fontWeight: 500,
     lineHeight: 40,
-    fontSize: 14,
-    color: '#7F7E7E',
+    fontSize: 14, 
+    color: '#7F7E7E', 
+    marginTop: 10,
+    fontWeight: 500,
   },
-  detailLabel2: {
-    width: 53,
+  label2: { 
     height: 40,
-    top: 2,
-    fontWeight: 500,
     lineHeight: 40,
-    fontSize: 13.2,
-    color: '#7F7E7E',
+    fontSize: 14, 
+    color: '#7F7E7E', 
+    marginTop: 10,
+    fontWeight: 500,
   },
-  detailLabel3: {
-    width: 73,
+  label3: { 
     height: 40,
-    top: 2,
-    fontWeight: 500,
     lineHeight: 40,
-    fontSize: 14,
-    color: '#7F7E7E',
+    fontSize: 14, 
+    color: '#7F7E7E', 
+    marginTop: 10,
+    fontWeight: 500,
   },
-  detailLabel4: {
-    width: 110,
+  label4: { 
     height: 40,
-    top: 2,
-    fontWeight: 500,
     lineHeight: 40,
-    fontSize: 13.2,
-    color: '#7F7E7E',
+    fontSize: 14, 
+    color: '#7F7E7E', 
+    marginTop: 10,
+    fontWeight: 500,
   },
-  detailValue: {
+  value: { 
     width: 92,
-    height: 40,
     lineHeight: 40,
-    right: 20,
-    fontSize: 16,
-    fontWeight: 400,
+    height: 40,
+    fontSize: 16, 
     color: '#000000',
+    fontWeight: 400, 
+    top: 10,
   },
-  detailValue1: {
+  value1: { 
     width: 125,
     height: 40,
     lineHeight: 40,
-    fontSize: 16,
-    right: 50,
-    fontWeight: 400,
+    fontSize: 16, 
     color: '#000000',
+    fontWeight: 400, 
+    top: 10,
   },
-  detailValue2: {
+  value2: { 
     width: 30,
     height: 40,
-    top: 2,
     lineHeight: 40,
-    fontSize: 16,
-    fontWeight: 400,
+    fontSize: 16, 
     color: '#000000',
+    fontWeight: 400, 
+    top: 10,
   },
-  detailValue3: {
+  value3: { 
     width: 72,
     height: 40,
     lineHeight: 40,
-    fontSize: 16,
-    fontWeight: 400,
+    fontSize: 16, 
     color: '#000000',
+    fontWeight: 400, 
+    top: 10,
   },
-  detailValue4: {
+  value4: { 
     width: 170,
     height: 40,
     lineHeight: 40,
-    fontSize: 16,
-    fontWeight: 400,
+    fontSize: 16, 
     color: '#000000',
+    fontWeight: 400,
+    top: 10, 
   },
-  progressContainer: {
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  progressLabel: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000',
-    marginBottom: 10,
-  },
-  progressText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#4D80E4',
-  },
-  statusLabel: {
-    fontSize: 16,
-    color: '#666',
-    marginTop: 10,
-  },
-  deductionsContainer: {
+  progressSection: { 
     width: 350,
-    height: 273,
+    height: 289,
     backgroundColor: '#F1F3FE',
     borderRadius: 12,
-    borderWidth: 0.5,
-    borderColor: '#C6CFFF',
     padding: 15,
     marginBottom: 20,
+    borderWidth: 0.5,
+    borderColor: '#C6CFFF',
     shadowColor: '#C6CFFF40',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 5,
+    top: -14,
   },
-  deductionsLabel: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000',
-    marginBottom: 10,
-  },
-  deductionRow: {
-    width: 318,
-    height: 40,
-    left: 6,
+  progressContent: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: 25,
   },
-  deductionText: {
-    width: 154,
+  progressTitle: { 
     height: 40,
-    fontWeight: 400,
     lineHeight: 40,
-    fontSize: 16,
     color: '#000000',
+    fontSize: 16, 
+    fontWeight: 400,
+    textAlign: 'center',
+ },
+  progressText: {
+    width: 72.66,
+    height: 34.1,
+    lineHeight: 22.41,
+    fontSize: 18.45, 
+    color: '#3D5AFE', 
+    fontWeight: 500,
+    textAlign: 'center',
+ },
+  intext: { 
+    width: 73,
+    height: 23,
+    marginTop: 10, 
+    borderColor: '#C8BB2E', 
+    fontWeight: '600', 
+    borderRadius: 12,
+    textAlign: 'center',
+    justifyContent: 'center',
+    top: 40,
+    borderWidth: 1,
+    left: 120,
+    padding: 10,
   },
-  depositButton: {
+  inProgress: { 
+    width: 53,
+    height: 40,
+    lineHeight: 40,
+    color: '#C8BB2E', 
+    fontWeight: 400, 
+    textAlign: 'center',
+    justifyContent: 'center',
+    fontSize: 10,
+  },
+  deductionsCard: {
+    width: 350,
+    height: 190,
+    backgroundColor: '#F1F3FE',
+    borderRadius: 12,
+    padding: 15,
+    marginBottom: 20,
+    borderWidth: 0.5,
+    borderColor: '#C6CFFF',
+    shadowColor: '#C6CFFF40',
+    top: -25,
+  },
+  label5: { 
+    height: 40,
+    lineHeight: 40,
+    fontSize: 14, 
+    color: '#8F8686', 
+    marginTop: 10,
+    fontWeight: 500,
+    top: -25,
+  },
+  value6: { 
+    height: 40,
+    fontSize: 16, 
+    color: '#000000',
+    fontWeight: 400, 
+    top: -20,
+  },
+  value7: { 
+    height: 40,
+    fontSize: 16, 
+    color: '#000000',
+    fontWeight: 400, 
+    top: -25,
+  },
+  value8: { 
+    height: 40,
+    fontSize: 16, 
+    color: '#000000',
+    fontWeight: 400, 
+    top: -19,
+  },
+  entrySeparator: {
+    width: 318,
+    borderBottomWidth: 0.7,
+    borderBottomColor: '#E6DEDE',
+  },
+  button: {
     width: 330,
     height: 50,
-    top: 10,
     backgroundColor: '#647BFE',
     paddingTop: 5,
     paddingRight: 149,
@@ -288,14 +361,17 @@ const styles = StyleSheet.create({
     paddingLeft: 149,
     borderRadius: 30,
     alignItems: 'center',
+    top: -34,
   },
-  depositButtonText: {
-    width: 111,
+  buttonText: { 
+    width: 113,
     height: 40,
     lineHeight: 40,
-    fontSize: 15.6,
-    color: '#FFFFFF',
-    fontWeight: 600,
+    color: '#FFFFFF', 
+    fontSize: 16, 
+    fontWeight: '600', 
+    alignItems: 'center',
+    flexDirection: 'row',
   },
 });
 

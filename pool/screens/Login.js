@@ -2,12 +2,21 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Switch, Image } fr
 import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const [placeholderVisible, setPlaceholderVisible] = useState(true);
+    const [isFocused, setIsFocused] = useState(false);
+
+
+    const togglePasswordVisibility = () => {
+      setIsPasswordVisible(!isPasswordVisible);
+    };
 
     const toggleRememberMe = () => setRememberMe(!rememberMe);
 
@@ -44,15 +53,24 @@ const Login = ({ navigation }) => {
                             keyboardType="phone-pad"
                         />
                     </View>
-                    <View style={styles.fieldsetItem}>
+                    <View style={[styles.fieldsetItem1, {borderColor: isFocused ? 'red' : '#444455'},]}>
                         <Text style={styles.legend}>Password</Text>
                         <TextInput
                          style={styles.input1}
-                         placeholder='Password'
-                         secureTextEntry
+                         placeholder={placeholderVisible ? '••••••••' : ''}
+                         placeholderTextColor="#333333" // Customize placeholder color
+                         secureTextEntry={!isPasswordVisible} // Hides or shows password
                          value={password}
-                         onChangeText={setPassword}
+                         onChangeText={(text) => {setPassword(text); setPlaceholderVisible(text.length === 0);}}
+                         onFocus={() =>{setIsFocused(true); setPlaceholderVisible(password.length === 0);}}
+                         onBlur={() => {
+                            setIsFocused(false);
+                            setPlaceholderVisible(password.length === 0);
+                          }}
                         />
+                        <TouchableOpacity onPress={togglePasswordVisibility} style={styles.icon}>
+                            <Ionicons name={isPasswordVisible ? 'eye-off' : 'eye'} size={24} color="gray" />
+                        </TouchableOpacity>
                     </View>
                 </View>
                 {/*Remember me and forgot password*/}
@@ -116,6 +134,11 @@ const styles = StyleSheet.create({
         position: 'relative',
         width: '100%',
       },
+      fieldsetItem1: {
+        marginBottom: 10,
+        position: 'relative',
+        width: '100%',
+      },
       legend: {
         position: 'absolute',
         top: -8,
@@ -128,6 +151,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5,
       },
     input: {
+        width: 171,
+        height: 40,
+        lineHeight: 40,
         borderColor: '#CCC9C9',
         borderWidth: 1,
         paddingHorizontal: 15,
@@ -135,6 +161,7 @@ const styles = StyleSheet.create({
         width: 330,
         height: 50,
         borderRadius: 12,
+        fontSize: 16,
     },
     input1: {
         width: 330,
@@ -143,7 +170,13 @@ const styles = StyleSheet.create({
         top: 1,
         borderRadius: 12,
         borderColor: '#3852E7',
+        fontSize: 16,
     },
+    icon: {
+        left: 290,
+        top: -42,
+        padding: 10,
+      },
     optionContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
