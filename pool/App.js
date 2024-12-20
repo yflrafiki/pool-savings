@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import  Welcome  from './screens/Welcome';
-import Signup from './screens/signup';
+import Signin from './screens/Signin';
 import  Login  from './screens/Login';
 import MobileMoneyLink from './screens/MobileMoneyLink';
 import MobileMoneyApproval from './screens/MobileMoneyApproval';
@@ -23,6 +23,7 @@ import Withdrawals from './screens/Withdrawals';
 import YourGoals from './screens/YourGoals';
 import GoalDetail from './screens/GoalDetail';
 import Success2 from './screens/Success2';
+import First from './screens/First';
 
 
 const Stack = createNativeStackNavigator();
@@ -30,7 +31,12 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator InitialRouteName= 'Welcome'>
+      <Stack.Navigator InitialRouteName= 'First'>
+      <Stack.Screen 
+          name="First"
+          component={First}
+          options={{headerShown:false}}
+        />
         <Stack.Screen 
           name="Welcome"
           component={Welcome}
@@ -42,8 +48,8 @@ export default function App() {
           options={{headerShown:false}}
         />
         <Stack.Screen 
-          name="Signup"
-          component={Signup}
+          name="Signin"
+          component={Signin}
           options={{headerShown:false}}
         />
         <Stack.Screen 

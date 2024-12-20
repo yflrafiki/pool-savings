@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
-const signup = ({ navigation }) => { 
+const Signin = ({ navigation }) => { 
     const [isAccepted, setIsAccepted] = useState(false);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -166,4 +166,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default signup
+export default Signin

@@ -282,6 +282,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: '#C6CFFF',
     shadowColor: '#C6CFFF',
+    left: 20,
   },
   progressText: {
     fontSize: 20,

@@ -239,6 +239,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         width: 47,
         height: 40,
+        lineHeight: 40,
         
     }
 })

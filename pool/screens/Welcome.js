@@ -8,7 +8,7 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 const Welcome = ({ navigation }) => {
 
     const handleSignUp = () => {
-        navigation.navigate('Signup');
+        navigation.navigate('Signin');
     };
 
   return (
@@ -18,7 +18,7 @@ const Welcome = ({ navigation }) => {
         <Text style={styles.title}>Sign Up</Text>
         <Text style={styles.subtitle}>Welcome to Take Chok!</Text>
         <Text style={styles.subtitle1}> Save small today, enjoy big tomorrow!</Text>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignUp')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Signin')}>
                 <Icon name="google" size={20} color="#fff" style={styles.icon} />
                 <Text style={styles.buttonText}>Sign Up with Google</Text>
         </TouchableOpacity>
